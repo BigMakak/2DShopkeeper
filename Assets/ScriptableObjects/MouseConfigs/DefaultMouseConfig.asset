@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8a9eb51effc66f4f9cec0eb6ff6b3f8, type: 3}
   m_Name: DefaultMouseConfig
   m_EditorClassIdentifier: 
-  MouseSprite: {fileID: 2800000, guid: 4cb7a9a3fbb8d1c4a853bb470f1f01fe, type: 3}
+  MouseSprite: {fileID: 2800000, guid: 19d8b402cd657fa4f90e50be6e3d3127, type: 3}
   Visibility: 1
   CursorMode: 0

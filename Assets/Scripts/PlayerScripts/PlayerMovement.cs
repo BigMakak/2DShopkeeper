@@ -33,41 +33,12 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void MovePlayer(Vector2 currDirection) {
-        Vector2 nextPost = _rb.position + currDirection.normalized * Speed * Time.deltaTime;
-
-        isPlayerInBounds(ref nextPost);
-
-        _rb.position = nextPost;
+        _rb.velocity = currDirection.normalized * Speed * Time.deltaTime;
     }
 
 
     private void AnimateMovement(Vector2 currDirection) {
         _playerAnimator.SetFloat("Horizontal",currDirection.x);
         _playerAnimator.SetFloat("Vertical",currDirection.y);
-    }
-
-    private void isPlayerInBounds(ref Vector2 nextPosition) 
-    {
-        Bounds backgroundBounds = this.backgroundCollider.bounds;
-
-        if(nextPosition.x > backgroundBounds.max.x)
-        {
-            nextPosition = new Vector2(backgroundBounds.max.x, nextPosition.y);
-        }
-
-        if(nextPosition.x < backgroundBounds.min.x) 
-        {
-            nextPosition = new Vector2(backgroundBounds.min.x, nextPosition.y);
-        }
-
-        if(nextPosition.y > backgroundBounds.max.y)
-        {
-            nextPosition = new Vector2(nextPosition.x, backgroundBounds.max.y);
-        }
-
-        if(nextPosition.y < backgroundBounds.min.y) 
-        {
-            nextPosition = new Vector2(nextPosition.x, backgroundBounds.min.y);
-        }
     }
 }

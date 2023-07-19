@@ -20,9 +20,10 @@ public class UITextChanger : MonoBehaviour
 
     void OnEnable()
     {
+        UpdateTextValue(inventory.Money);
         inventory.OnMoneyChanged += UpdateTextValue;
     }
-    
+
     private void UpdateTextValue(int value) 
     {
         coinText.text = value.ToString();

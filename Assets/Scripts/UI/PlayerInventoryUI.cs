@@ -40,9 +40,10 @@ public class PlayerInventoryUI : MonoBehaviour
 
         if (this._mainContainer.activeSelf)
         {
-            ClearItems();
-
             addItemsToInventory();
+        } else 
+        {
+            ClearItems();
         }
     }
 
@@ -79,6 +80,7 @@ public class PlayerInventoryUI : MonoBehaviour
         if (_playerObject.TryGetComponent<PlayerChangeOutfit>(out PlayerChangeOutfit playerChangeOutfit))
         {
             playerChangeOutfit.ChangeOutfit(item);
+            ToogleInventoryWindow();
         }
         else
         {

@@ -13,16 +13,17 @@ public class Inventory : ScriptableObject
 
    public bool AddItem(Item item) 
    {
-      this.Money -= item.ItemValue;
-      OnMoneyChanged?.Invoke(this.Money);
+      int leftMoney = this.Money - item.ItemValue;
 
-      if(this.Money <= 0) 
+      if(leftMoney < 0) 
       {
-         this.Money = 0;
          return false;
       }
 
+      this.Money = leftMoney;
+
       this.items.Add(item);
+      OnMoneyChanged?.Invoke(this.Money);
       return true;
    }
 

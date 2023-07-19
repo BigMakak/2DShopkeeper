@@ -1,14 +1,21 @@
 using UnityEngine;
 
-public class CursorBehavior : MonoBehaviour
+public class CursorBehavior : MonoBehaviour 
 {
-    [SerializeField] private MouseConfig defaultMouseConfig;
+    [SerializeField] private MouseConfig defaultMouse;
+
+    [SerializeField] private MouseConfig clickMouse;
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = defaultMouseConfig.Visibility;
+        SetMouseConfig(defaultMouse);   
+    }
 
-        Cursor.SetCursor(defaultMouseConfig.MouseSprite,Vector2.zero,defaultMouseConfig.CursorMode);
+    private void SetMouseConfig(MouseConfig config) 
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = config.Visibility;
+
+        Cursor.SetCursor(config.MouseSprite,Vector2.zero,config.CursorMode);
     }
 }

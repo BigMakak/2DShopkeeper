@@ -111,8 +111,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 11, y: -3.4389}
-  m_SizeDelta: {x: 179.8955, y: 25}
+  m_AnchoredPosition: {x: 6.2257004, y: -3.4389}
+  m_SizeDelta: {x: 227.5126, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2492767442055738270
 CanvasRenderer:
@@ -169,8 +169,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 17
+  m_fontSizeBase: 17
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -323,6 +323,8 @@ MonoBehaviour:
   _itemName: {fileID: 2492767442055738271}
   _itemCost: {fileID: 2492767443969102900}
   clickButton: {fileID: 6148878571868717142}
+  pressedButton: {fileID: 0}
+  pressedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &2492767443502170628
 GameObject:
   m_ObjectHideFlags: 0
