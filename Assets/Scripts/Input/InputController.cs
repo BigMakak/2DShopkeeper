@@ -10,8 +10,6 @@ public class InputController : MonoBehaviour
     #if ENABLE_INPUT_SYSTEM 
     public void OnMove(InputValue inputValue) 
     {
-        Debug.Log("Input value: " + inputValue.Get<Vector2>());
-
         MovementInput = inputValue.Get<Vector2>();
     }
     #endif
