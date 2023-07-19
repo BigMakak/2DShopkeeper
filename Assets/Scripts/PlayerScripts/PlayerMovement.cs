@@ -12,10 +12,13 @@ public class PlayerMovement : MonoBehaviour
     private InputController _inputController;
     private Animator _playerAnimator;
 
+    private Rigidbody2D _rb;
+
     void Awake()
     {
         _inputController = GetComponent<InputController>();
         _playerAnimator = GetComponent<Animator>();
+        _rb = GetComponent<Rigidbody2D>();
     }
 
     // Start is called before the first frame update
@@ -25,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Vector2 currDirection = _inputController.MovementInput;
 
@@ -35,9 +38,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void MovePlayer(Vector2 currDirection) {
-
-        Vector3 moveDirection = new Vector3(currDirection.x, currDirection.y).normalized;
-        this.transform.position += moveDirection * Speed * Time.deltaTime;
+        _rb.velocity = currDirection.normalized * Speed * Time.deltaTime;
     }
 
 
