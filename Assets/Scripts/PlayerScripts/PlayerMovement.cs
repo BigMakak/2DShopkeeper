@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Player Variables")]
     [SerializeField] private float Speed;
 
-    [SerializeField] SpriteRenderer backgroundSprite;
+    [SerializeField] PolygonCollider2D backgroundCollider;
 
     // Internal References
     private InputController _inputController;
@@ -34,10 +34,7 @@ public class PlayerMovement : MonoBehaviour
 
         // TODO continuar aqui para verificar os bounds maximos da imagem de background
         // De momento parte um bocado o jogo, o jogador continuar a andar para frente para sempre
-        if(this.transform.position.x > backgroundSprite.sprite.bounds.max.x) 
-        {
-            return;
-        }
+        //LimitePlayerMovement(ref currDirection);
 
         MovePlayer(currDirection);
 
@@ -45,7 +42,11 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void MovePlayer(Vector2 currDirection) {
-        _rb.velocity = currDirection.normalized * Speed * Time.deltaTime;
+        Vector2 nextPost = _rb.position + currDirection.normalized * Speed * Time.deltaTime;
+
+        isPlayerInBounds(ref nextPost);
+
+        _rb.position = nextPost;
     }
 
 
@@ -54,10 +55,28 @@ public class PlayerMovement : MonoBehaviour
         _playerAnimator.SetFloat("Vertical",currDirection.y);
     }
 
-    private void LimitePlayerMovement() 
+    private void isPlayerInBounds(ref Vector2 nextPosition) 
     {
-        
+        Bounds backgroundBounds = this.backgroundCollider.bounds;
+
+        if(nextPosition.x > backgroundBounds.max.x)
+        {
+            nextPosition = new Vector2(backgroundBounds.max.x, nextPosition.y);
+        }
+
+        if(nextPosition.x < backgroundBounds.min.x) 
+        {
+            nextPosition = new Vector2(backgroundBounds.min.x, nextPosition.y);
+        }
+
+        if(nextPosition.y > backgroundBounds.max.y)
+        {
+            nextPosition = new Vector2(nextPosition.x, backgroundBounds.max.y);
+        }
+
+        if(nextPosition.y < backgroundBounds.min.y) 
+        {
+            nextPosition = new Vector2(nextPosition.x, backgroundBounds.min.y);
+        }
     }
-
-
 }
