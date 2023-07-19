@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Player Variables")]
     [SerializeField] private float Speed;
 
+    [Header("Movement boundary Variables")]
     [SerializeField] PolygonCollider2D backgroundCollider;
 
     // Internal References
@@ -21,20 +22,10 @@ public class PlayerMovement : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void FixedUpdate()
     {
         Vector2 currDirection = _inputController.MovementInput;
-
-        // TODO continuar aqui para verificar os bounds maximos da imagem de background
-        // De momento parte um bocado o jogo, o jogador continuar a andar para frente para sempre
-        //LimitePlayerMovement(ref currDirection);
 
         MovePlayer(currDirection);
 

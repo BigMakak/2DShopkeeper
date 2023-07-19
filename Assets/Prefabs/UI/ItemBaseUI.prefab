@@ -111,7 +111,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.4496, y: -3.7509003}
+  m_AnchoredPosition: {x: -7.9, y: -3.7509003}
   m_SizeDelta: {x: 179.8955, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2492767442055738270
@@ -238,15 +238,15 @@ RectTransform:
   m_GameObject: {fileID: 2492767443204777037}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2492767443416578904}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 137.7, y: -3.5949}
+  m_AnchoredPosition: {x: 142.5, y: -1.8448999}
   m_SizeDelta: {x: 25.3119, y: 25.312}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2492767443204777038
@@ -434,7 +434,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -119.2, y: 0.31198}
+  m_AnchoredPosition: {x: -123.5, y: 0.31198}
   m_SizeDelta: {x: 47.6052, y: 47.605}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2492767443502170633
@@ -502,15 +502,15 @@ RectTransform:
   m_GameObject: {fileID: 2492767443969102898}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2492767443416578904}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 99.1, y: -3.4389}
+  m_AnchoredPosition: {x: 100.2, y: -1.6889}
   m_SizeDelta: {x: 41.764, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2492767443969102903

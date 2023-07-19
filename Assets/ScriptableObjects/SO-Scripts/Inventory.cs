@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 [CreateAssetMenu(fileName = "Default Inventory", menuName = "ScriptableObjects/Inventory")]
 public class Inventory : ScriptableObject
@@ -8,9 +9,13 @@ public class Inventory : ScriptableObject
 
    public int Money;
 
+   public event Action<int> OnMoneyChanged;
+
    public bool AddItem(Item item) 
    {
       this.Money -= item.ItemValue;
+      OnMoneyChanged?.Invoke(this.Money);
+
       if(this.Money <= 0) 
       {
          this.Money = 0;
@@ -29,6 +34,7 @@ public class Inventory : ScriptableObject
       }
 
       this.Money += item.ItemValue;
+      OnMoneyChanged?.Invoke(this.Money);
       this.items.Remove(item);
       return true;
    }

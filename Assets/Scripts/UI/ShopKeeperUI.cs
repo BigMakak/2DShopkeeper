@@ -1,11 +1,13 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopKeeperUI : MonoBehaviour
 {
-    [Header("Main UI Container")]
+    [Header("UI Variables")]
     [SerializeField] private GameObject _mainContainer;
+
+    [SerializeField] private Image _backgroundImage;
 
     [Header("Inventories")]
     [SerializeField] private Inventory _shopKeeperInventory;
@@ -17,13 +19,12 @@ public class ShopKeeperUI : MonoBehaviour
     [Header("Transform of the layout group for the items")]
     [SerializeField] private Transform _parentTransform;
 
+    [SerializeField] private Color BuyColor;
+
+    [SerializeField] private Color SellColor;
+
     //Internal Variables
     private List<UIItem> addedItems = new List<UIItem>();
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
 
     // Opens the buy window of the shoop keeper
     // Shows the items that the shopkeeper has
@@ -46,7 +47,18 @@ public class ShopKeeperUI : MonoBehaviour
         AddItems(openInventory,_shopKeeperInventory);
     }
 
-    public void AddItems(Inventory openInventory, Inventory addInventory) 
+    public void ChangeWindowColor(bool isBuy) 
+    {
+        if(_backgroundImage == null) 
+        {
+            Debug.LogWarning("No back image setted in shop keeper UI, skipping behavior!");
+            return;
+        }
+
+        _backgroundImage.color = isBuy ? BuyColor : SellColor;
+    }
+
+    private void AddItems(Inventory openInventory, Inventory addInventory) 
     {
         foreach(Item item in openInventory.items) 
         {
@@ -59,14 +71,6 @@ public class ShopKeeperUI : MonoBehaviour
             {
                 Debug.LogWarning("Current item prefab doesn't have the Item UI behavior, please add it!");
             }
-        }
-    }
-
-    void OnDisable()
-    {
-        foreach(UIItem itemObject in this.addedItems) 
-        {
-            Destroy(itemObject.uiObject);
         }
     }
 
