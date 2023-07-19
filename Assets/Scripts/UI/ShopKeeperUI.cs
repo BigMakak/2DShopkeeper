@@ -18,42 +18,43 @@ public class ShopKeeperUI : MonoBehaviour
     [SerializeField] private Transform _parentTransform;
 
     //Internal Variables
-    private List<GameObject> addedItems = new List<GameObject>();
+    private List<UIItem> addedItems = new List<UIItem>();
 
     // Start is called before the first frame update
     void Start()
     {
     }
 
-    public void OpenSellWindow() 
+    // Opens the buy window of the shoop keeper
+    // Shows the items that the shopkeeper has
+    public void OpenBuyWindow(Inventory openInventory) 
     {
         ToggleMainContainer();
 
         ClearItems();
 
-        AddItems(_playerInventory.items);
+        AddItems(openInventory,_playerInventory);
     }
 
-    public void OpenBuyWindow() 
+    // Opens the sell window, showing the items that the player can sell
+    public void OpenSellWindow(Inventory openInventory) 
     {
         ToggleMainContainer();
 
         ClearItems();
 
-        AddItems(_shopKeeperInventory.items);
+        AddItems(openInventory,_shopKeeperInventory);
     }
 
-
-    public void AddItems(List<Item> items) 
+    public void AddItems(Inventory openInventory, Inventory addInventory) 
     {
-        foreach(Item item in items) 
+        foreach(Item item in openInventory.items) 
         {
-            
             GameObject spawnIcon = Instantiate(_itemPrefab,_parentTransform); 
             if(spawnIcon.TryGetComponent<ItemUI>(out ItemUI itemUI))
             {
-                itemUI.SetupItem(item);
-                addedItems.Add(spawnIcon);
+                itemUI.SetupItem(item,addInventory,InterchangeItems);
+                addedItems.Add(new UIItem(spawnIcon,item,openInventory));
             } else 
             {
                 Debug.LogWarning("Current item prefab doesn't have the Item UI behavior, please add it!");
@@ -63,9 +64,9 @@ public class ShopKeeperUI : MonoBehaviour
 
     void OnDisable()
     {
-        foreach(GameObject itemObject in this.addedItems) 
+        foreach(UIItem itemObject in this.addedItems) 
         {
-            Destroy(itemObject);
+            Destroy(itemObject.uiObject);
         }
     }
 
@@ -80,11 +81,49 @@ public class ShopKeeperUI : MonoBehaviour
         _mainContainer.gameObject.SetActive(!_mainContainer.gameObject.activeSelf);
     }
 
-    private void ClearItems() 
+    private void InterchangeItems(Inventory addInventory,Item item) 
     {
-        foreach(GameObject uiItem in this.addedItems) 
+        if(addInventory.AddItem(item)) 
         {
-            Destroy(uiItem);
+            Debug.Log("Item added to an Invenotry");
+            UIItem currItem = this.addedItems.Find(currUIItem => currUIItem.representingItem == item);
+
+            // Clear and destroy the representation of the UI Object
+            // Also destroys the prefab that was spawned
+            Destroy(currItem.uiObject);
+            currItem.currInventory.RemoveItem(item);
+            this.addedItems.Remove(currItem);
+
+        } else 
+        {
+            Debug.Log("Not enough money to transfer the item");
         }
     }
+
+    private void ClearItems() 
+    {
+        foreach(UIItem uiItem in this.addedItems) 
+        {
+            Destroy(uiItem.uiObject);
+        }
+
+        this.addedItems.Clear();
+    }
 }
+
+public struct UIItem 
+{
+    public GameObject uiObject;
+    public Item representingItem;
+
+    public Inventory currInventory;
+
+    public UIItem(GameObject gameObject, Item item, Inventory inventory) 
+    {
+        this.uiObject = gameObject;
+        this.representingItem = item;
+        this.currInventory = inventory;
+    }
+}
+
+

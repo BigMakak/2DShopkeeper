@@ -6,6 +6,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Player Variables")]
     [SerializeField] private float Speed;
 
+    [SerializeField] SpriteRenderer backgroundSprite;
+
     // Internal References
     private InputController _inputController;
     private Animator _playerAnimator;
@@ -30,6 +32,13 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 currDirection = _inputController.MovementInput;
 
+        // TODO continuar aqui para verificar os bounds maximos da imagem de background
+        // De momento parte um bocado o jogo, o jogador continuar a andar para frente para sempre
+        if(this.transform.position.x > backgroundSprite.sprite.bounds.max.x) 
+        {
+            return;
+        }
+
         MovePlayer(currDirection);
 
         AnimateMovement(currDirection);
@@ -43,6 +52,11 @@ public class PlayerMovement : MonoBehaviour
     private void AnimateMovement(Vector2 currDirection) {
         _playerAnimator.SetFloat("Horizontal",currDirection.x);
         _playerAnimator.SetFloat("Vertical",currDirection.y);
+    }
+
+    private void LimitePlayerMovement() 
+    {
+        
     }
 
 
