@@ -111,8 +111,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7.9, y: -3.7509003}
-  m_SizeDelta: {x: 179.8955, y: 25}
+  m_AnchoredPosition: {x: 27.1, y: 11.614}
+  m_SizeDelta: {x: 236.5744, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2492767442055738270
 CanvasRenderer:
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Item Name
+  m_text: Orange Outfit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8294950630c4bd04fadf0aca29cc1fb6, type: 2}
   m_sharedMaterial: {fileID: 296711582953436577, guid: 8294950630c4bd04fadf0aca29cc1fb6, type: 2}
@@ -246,7 +246,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 142.5, y: -1.8448999}
+  m_AnchoredPosition: {x: 38.2, y: -17.7}
   m_SizeDelta: {x: 25.3119, y: 25.312}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2492767443204777038
@@ -315,8 +315,8 @@ RectTransform:
   m_GameObject: {fileID: 2492767443416578905}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4911458098086726120}
   - {fileID: 2492767443502170631}
@@ -399,6 +399,7 @@ MonoBehaviour:
   _itemName: {fileID: 2492767442055738271}
   _itemCost: {fileID: 2492767443969102900}
   clickButton: {fileID: 6148878571868717142}
+  pressedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &2492767443502170628
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,7 +511,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 100.2, y: -1.6889}
+  m_AnchoredPosition: {x: -4.099991, y: -17.544003}
   m_SizeDelta: {x: 41.764, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2492767443969102903

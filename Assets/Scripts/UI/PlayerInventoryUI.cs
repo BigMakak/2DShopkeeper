@@ -38,6 +38,8 @@ public class PlayerInventoryUI : MonoBehaviour
 
         this._mainContainer.SetActive(!this._mainContainer.activeSelf);
 
+        AudioManager.instance.PlayAudio("Click");
+
         if (this._mainContainer.activeSelf)
         {
             addItemsToInventory();

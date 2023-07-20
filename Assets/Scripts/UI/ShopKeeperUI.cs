@@ -83,15 +83,17 @@ public class ShopKeeperUI : MonoBehaviour
         }
 
         _mainContainer.gameObject.SetActive(!_mainContainer.gameObject.activeSelf);
+
+        AudioManager.instance.PlayAudio("Click");
     }
 
     private void InterchangeItems(Inventory addInventory,Item item) 
     {
         if(addInventory.AddItem(item)) 
         {
-            Debug.Log("Item added to an Invenotry");
             UIItem currItem = this.addedItems.Find(currUIItem => currUIItem.representingItem == item);
 
+            AudioManager.instance.PlayAudio("Coin");
             // Clear and destroy the representation of the UI Object
             // Also destroys the prefab that was spawned
             Destroy(currItem.uiObject);

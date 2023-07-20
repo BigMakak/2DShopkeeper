@@ -17,6 +17,8 @@ public class NPCDialogue : MonoBehaviour
 
         // Toggles the dialogue container for a speficic NPC
         UIDialogueContainer.gameObject.SetActive(!UIDialogueContainer.gameObject.activeSelf);
+
+        AudioManager.instance.PlayAudio("Bop");
         
         CancelInvoke();
         // After a certain time, close the dialogue
